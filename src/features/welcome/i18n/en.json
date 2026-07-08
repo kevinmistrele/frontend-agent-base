@@ -1,0 +1,5 @@
+{
+  "welcome.loading": "Loading...",
+  "welcome.error": "Could not load the welcome message.",
+  "welcome.reload": "Reload"
+}
