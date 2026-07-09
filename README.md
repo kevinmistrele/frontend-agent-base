@@ -73,8 +73,9 @@ docs/
   ponytail/       the minimalism ladder — what NOT to build, review, audit, debt ledger
   architecture/   overview, project structure, dependency rules, feature template,
                   API layer, state management, i18n, feature flags
-  standards/      typescript, react, components, hooks, forms, styling,
-                  accessibility, errors, security, performance, tests, documentation
+  standards/      typescript, naming, react, components, hooks, forms, styling,
+                  ui-states, accessibility, errors, security, performance, tests,
+                  documentation, git
   decisions/      numbered architecture decision records
 ```
 

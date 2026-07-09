@@ -33,8 +33,9 @@ docs/
   ponytail/       what NOT to build: the minimalism ladder, review, audit, debt ledger
   architecture/   the system: overview, structure, dependency rules, API layer, state,
                   i18n, feature flags
-  standards/      the code: typescript, react, components, hooks, forms, styling,
-                  accessibility, errors, security, performance, tests, documentation
+  standards/      the code: typescript, naming, react, components, hooks, forms, styling,
+                  ui-states, accessibility, errors, security, performance, tests,
+                  documentation, git
   decisions/      why: numbered architecture decision records
 ```
 
@@ -50,6 +51,9 @@ Jump straight to the doc that matches the task instead of reading everything:
 | User-facing text / translations                       | `docs/architecture/i18n.md`                                                                                        |
 | Gating something behind a flag                        | `docs/architecture/feature-flags.md`                                                                               |
 | Styling                                               | `docs/standards/styling.md`                                                                                        |
+| Loading/error/empty UI for a screen                   | `docs/standards/ui-states.md`                                                                                      |
+| Naming a function, variable or file                   | `docs/standards/naming.md`                                                                                         |
+| Asked to commit, branch or open a PR                  | `docs/standards/git.md`                                                                                            |
 | Tests                                                 | `docs/standards/tests.md`                                                                                          |
 | Anything user-facing/interactive                      | `docs/standards/accessibility.md`                                                                                  |
 | Tempted to add a new abstraction, dependency, or file | `docs/ponytail/overview.md`                                                                                        |

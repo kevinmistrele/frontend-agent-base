@@ -8,7 +8,7 @@ api-client / api action  ->  feature hook (TanStack Query)  ->  screen hook  -> 
 
 - Lower layers (`src/lib`, feature `api/*`) propagate errors — they throw/reject, they never catch-and-silence.
 - The feature hook exposes the error state (TanStack Query's `isError`/`error` already does this — don't re-wrap it in a try/catch).
-- The screen (or its screen hook) is the only layer that decides visual feedback: inline error message, toast, fallback UI.
+- The screen (or its screen hook) is the only layer that decides visual feedback: inline error message, toast, fallback UI — see [ui-states.md](./ui-states.md) for which feedback fits which failure.
 - Never show a raw technical error (stack trace, `error.message` straight from a network exception) to the end user — map it to a user-facing message; log the technical detail if the project has logging.
 
 ## What not to do
