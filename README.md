@@ -77,6 +77,7 @@ docs/
                   ui-states, accessibility, errors, security, performance, tests,
                   documentation, git
   decisions/      numbered architecture decision records
+  recipes/        opt-in additions (Tailwind, Zustand) — applied only when you choose them
 ```
 
 Do not create broad refactors unless the user explicitly asks for them.
