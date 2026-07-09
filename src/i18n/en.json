@@ -1,4 +1,6 @@
 {
+  "app.error.title": "Something went wrong",
+  "app.error.description": "An unexpected error occurred. Reloading the page usually fixes it.",
   "common.close": "Close",
   "common.retry": "Try again"
 }

@@ -21,9 +21,10 @@ api-client / api action  ->  feature hook (TanStack Query)  ->  screen hook  -> 
 
 The query/screen-state flow above handles _expected_ errors (a failed request, invalid input). Unexpected render-time exceptions (a bug throwing while rendering) need a React error boundary, since a `try/catch` cannot catch those.
 
+- The app root already has one: the router's `errorElement` in `src/app/router.tsx` renders `RootErrorRoute` (`src/app/routes/root-error.tsx`) when any route crashes while rendering. Nothing unhandled reaches a blank screen.
 - Wrap features (not only the app root) in their own error boundary where practical, so a crash in one feature doesn't take down the whole screen.
 - The boundary's fallback UI belongs with the boundary (app shell or feature), not duplicated ad hoc per component.
-- This base doesn't ship an error-boundary component yet — add one (or a small library like `react-error-boundary`) only when a task actually needs it, and note the addition explicitly.
+- This base doesn't ship a reusable error-boundary component for feature-level use yet — add one (or a small library like `react-error-boundary`) only when a task actually needs it, and note the addition explicitly.
 
 ## Regression coverage
 
