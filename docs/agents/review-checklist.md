@@ -10,6 +10,7 @@ Use this before calling a change done — as self-review, or as the checklist a 
 - [ ] If a new feature was added, its zone was added to `import/no-restricted-paths` in `eslint.config.js` — otherwise it isn't actually protected.
 - [ ] If a new feature flag was added, it's in `.env.example` and `src/config/feature-flags.ts`, defaults to off, and is read through `useFeatureFlag` (see [feature-flags.md](../architecture/feature-flags.md)).
 - [ ] Acceptance criteria for the task (if any were stated) are each addressed.
+- [ ] If the change altered a convention or made any statement in `AGENTS.md`/`docs/` false, the affected doc was updated in the same change.
 
 ## Types and code quality
 

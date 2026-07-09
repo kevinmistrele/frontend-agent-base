@@ -27,17 +27,30 @@ Run the smallest check that proves your change works — see [Validation](#valid
 
 If rules conflict, mark `Pending decision` and choose the smallest safe change only when progress is still possible.
 
-## Required Reading
+## How to Work
 
-On the first task in a session, read in order:
+This file is the only required reading. Then jump straight to the docs matching your task — see the map below.
 
-1. `docs/agents/workflow.md` — how to approach a task.
-2. `docs/ponytail/overview.md` — the minimalism ladder: what NOT to build, applied on every task.
-3. `docs/architecture/overview.md` — the layers and why.
-4. `docs/architecture/project-structure.md` — where things live on disk.
-5. `docs/architecture/feature-template.md` — the shape of a new feature.
+1. Read the code you are about to change and its neighbors before editing; prefer existing patterns over new abstractions.
+2. Choose the smallest implementation that satisfies the request — climb the ladder below first.
+3. Keep diffs small and reviewable; don't move or rename files unless that is the task.
+4. Validate (see [Validation](#validation)), self-check against `docs/agents/review-checklist.md`, then report.
 
-Then read only the extra docs relevant to the task — see the index below.
+Full version: `docs/agents/workflow.md`.
+
+## The Ladder (what NOT to build)
+
+Stop at the first rung that holds:
+
+1. Does this need to exist at all? Speculative need → skip it, say so in one line.
+2. Already in this codebase? Reuse it.
+3. Standard library does it? Use it.
+4. Native platform feature covers it? Use it.
+5. An already-installed dependency solves it? Use it — never add a new one for what TanStack Query, Zod, or react-router already cover.
+6. Can it be one line? One line.
+7. Only then: the minimum code that works.
+
+Mark deliberate shortcuts with a `// ponytail:` comment naming the ceiling and the upgrade path. Full version: `docs/ponytail/overview.md`.
 
 ## Documentation Map
 
@@ -79,6 +92,13 @@ Feature-based, inspired by Bulletproof React. Full rules: `docs/architecture/`.
 
 ```txt
 app -> features -> shared (components, hooks, lib, types, utils)
+
+src/
+  app/          shell: providers, router, one route file per top-level route
+  components/   shared business-agnostic UI
+  config/       env validation, feature flags
+  features/*    self-contained: api/ components/ hooks/ types/ i18n/ (create only what's needed)
+  hooks/ i18n/ lib/ testing/ types/ utils/    shared layers
 ```
 
 - `src/app` composes providers, routing and features.
@@ -97,7 +117,8 @@ These boundaries are lint-enforced (`import/no-restricted-paths` in `eslint.conf
 - Read `import.meta.env.VITE_FEATURE_*` directly — go through `useFeatureFlag` (see `docs/architecture/feature-flags.md`).
 - Refactor broadly beyond what the request needs.
 - Add, log, or expose secrets, tokens, private endpoints, or proprietary business rules.
-- Add a new dependency, abstraction, or file without climbing the ladder in `docs/ponytail/overview.md` first — reuse, standard library, and native platform features come before new code.
+- Add a new dependency, abstraction, or file without climbing the ladder above first — reuse, standard library, and native platform features come before new code.
+- Ship a change that makes any statement in `docs/` or this file false — update the affected doc in the same change. A doc that lies is worse than no doc.
 
 ## Validation
 
