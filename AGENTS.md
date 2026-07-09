@@ -4,6 +4,20 @@
 
 This repository is a React + TypeScript front-end base designed for scalable feature development and AI-agent collaboration. It works the same way whether you are Claude, Codex, Cursor, Copilot, or any other agent — start here.
 
+## Commands
+
+```bash
+npm install          # setup (Node >= 22)
+npm run dev          # dev server
+npm run typecheck    # tsc --noEmit
+npm run lint         # eslint (also enforces architecture boundaries)
+npm run test         # vitest
+npm run format       # prettier --write (format:check is what CI runs)
+npm run build        # tsc -b && vite build
+```
+
+Run the smallest check that proves your change works — see [Validation](#validation).
+
 ## Rule Priority
 
 1. Explicit user request.
