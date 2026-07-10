@@ -40,7 +40,7 @@ Request functions:
 api-client / api/*.ts  ->  feature hook (TanStack Query)  ->  screen
 ```
 
-Errors propagate up through this chain untouched. The screen decides what the user sees (see [state-management.md](./state-management.md) and [../standards/errors.md](../standards/errors.md)).
+Errors propagate up through this chain untouched. On a non-ok response, `api-client` throws an `ApiError` carrying `status` and the parsed response `body` — inspect those when a screen needs to branch on the failure kind (e.g. 404 → empty state). The screen decides what the user sees (see [state-management.md](./state-management.md) and [../standards/errors.md](../standards/errors.md)).
 
 ## Config
 
@@ -49,4 +49,4 @@ Errors propagate up through this chain untouched. The screen decides what the us
 
 ## Adding a new backend integration
 
-Extend `src/lib/api-client.ts` (e.g. add `post`, `put`, `delete` methods) rather than introducing a new HTTP library. Only reach for a dedicated library (e.g. `axios`, generated SDK) when the task explicitly calls for it.
+`src/lib/api-client.ts` already exposes `get`, `post`, `put`, `patch` and `delete`. Extend it (e.g. auth headers, request cancellation) rather than introducing a new HTTP library. Only reach for a dedicated library (e.g. `axios`, generated SDK) when the task explicitly calls for it.

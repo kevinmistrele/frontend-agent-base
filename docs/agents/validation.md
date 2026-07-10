@@ -9,6 +9,7 @@ Run the smallest validation that actually covers the change — not the full sui
 | New/changed hook, util, or feature logic                  | add/update a test, then `npm run test` (targeted file, or full run if unsure of blast radius) |
 | API layer, state management, or shared-module change      | `npm run typecheck`, `npm run lint`, `npm run test`                                           |
 | Routing, global config, dependencies, or public contracts | all of the above, plus `npm run build`                                                        |
+| User-visible flow change (route, screen composition)      | consider `npm run test:e2e` — cheap, and it proves the app actually boots and renders         |
 
 ## Commands
 
@@ -17,6 +18,7 @@ npm run typecheck
 npm run lint
 npm run format:check
 npm run test
+npm run test:e2e   # Playwright smoke; boots the dev server itself (first run: npx playwright install chromium)
 npm run build
 ```
 

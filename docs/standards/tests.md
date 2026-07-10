@@ -12,14 +12,15 @@
 1. **Unit** — pure functions, utilities, selectors (`src/utils`, feature `utils/`).
 2. **Component** — user-visible interaction and visual states, via Testing Library queries (role/label/text, not test IDs as a first resort).
 3. **Integration** — a feature's flow end to end (screen + hooks + mocked API layer), covering loading/error/empty/success.
-4. **E2E** — critical journeys only; this base doesn't include an E2E runner yet, add one deliberately if the project needs it.
+4. **E2E** — critical journeys only, via Playwright (`npm run test:e2e`, specs in `e2e/`). The base ships one smoke test (home renders); add a spec per critical journey, not per screen.
 
 ## Tools already in this repo
 
-- Vitest for unit/integration tests (`npm run test`).
+- Vitest for unit/integration tests (`npm run test`, only picks up `src/**/*.test.{ts,tsx}`).
 - `@testing-library/react` + `@testing-library/user-event` for component behavior.
 - `jsdom` as the test environment (`src/testing/setup-tests.ts`).
-- MSW is not installed; add it only when API mocking in tests becomes necessary rather than hand-rolling fetch mocks per test file.
+- MSW for API mocking: the server in `src/testing/mocks/server.ts` starts automatically via `setup-tests.ts` and errors on unhandled requests. Register per-test responses with `server.use(http.get(...))` (see `src/lib/api-client.test.ts`); add a handler to `src/testing/mocks/handlers.ts` only when many tests share it. Never hand-roll `fetch` mocks.
+- Playwright for E2E (`npm run test:e2e`, specs in `e2e/`); it boots the dev server itself via `playwright.config.ts`.
 
 ## Rendering components under test
 

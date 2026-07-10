@@ -15,4 +15,4 @@ Formatting had no enforced convention, and validation (`typecheck`/`lint`/`test`
 
 - The entire existing codebase was reformatted once to adopt the new Prettier config (formatting-only diff, verified against the type/lint/test/build suite before and after).
 - A PR now fails CI on a formatting, lint, type, test, or build regression even if a contributor's local hooks were bypassed.
-- No E2E job was added (Bulletproof React's CI has one via Playwright) — this base has no E2E runner yet (see `docs/standards/tests.md`); add one deliberately if the project needs it.
+- No E2E job was added (Bulletproof React's CI has one via Playwright) — this base had no E2E runner at the time. Superseded by [0007](./0007-testing-and-dependency-tooling.md), which added Playwright and an E2E step to this workflow.
