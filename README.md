@@ -20,6 +20,9 @@ It combines:
 - react-intl (i18n, owned per feature — see `docs/architecture/i18n.md`)
 - Vitest
 - Testing Library
+- MSW (API mocking in tests — `src/testing/mocks/`)
+- Playwright (E2E smoke — `npm run test:e2e`)
+- Renovate (automated dependency update PRs, validated by CI)
 - ESLint, with `eslint-plugin-import` (`import/no-restricted-paths` enforces the dependency rules), `eslint-plugin-check-file` (enforces `kebab-case` naming) and `eslint-plugin-jsx-a11y` (enforces baseline accessibility)
 - Prettier (`eslint-config-prettier` keeps ESLint out of formatting's way)
 - Husky + lint-staged: pre-commit runs lint + format + typecheck, pre-push runs the test suite
@@ -60,6 +63,7 @@ npm run typecheck
 npm run lint
 npm run format
 npm run test
+npm run test:e2e   # first run: npx playwright install chromium
 npm run build
 ```
 
@@ -77,7 +81,7 @@ docs/
                   ui-states, accessibility, errors, security, performance, tests,
                   documentation, git
   decisions/      numbered architecture decision records
-  recipes/        opt-in additions (Tailwind, Zustand) — applied only when you choose them
+  recipes/        opt-in additions (Tailwind, Zustand, shadcn/ui) — applied only when you choose them
 ```
 
 Do not create broad refactors unless the user explicitly asks for them.

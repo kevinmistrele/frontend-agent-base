@@ -11,7 +11,8 @@ npm install          # setup (Node >= 22)
 npm run dev          # dev server
 npm run typecheck    # tsc --noEmit
 npm run lint         # eslint (also enforces architecture boundaries)
-npm run test         # vitest
+npm run test         # vitest (unit/integration, src/**/*.test.*)
+npm run test:e2e     # playwright smoke (e2e/, boots dev server itself)
 npm run format       # prettier --write (format:check is what CI runs)
 npm run build        # tsc -b && vite build
 ```
@@ -22,7 +23,7 @@ Run the smallest check that proves your change works — see [Validation](#valid
 
 If this base was just cloned to start a new project (sign: the `welcome` example is still the only feature), ask the user **before building the first feature**:
 
-1. Which optional recipes to apply — see `docs/recipes/` (currently: Tailwind, Zustand). Apply only what the user chooses, following the recipe file exactly; each one records its own ADR.
+1. Which optional recipes to apply — see `docs/recipes/` (currently: Tailwind, Zustand, shadcn/ui). Apply only what the user chooses, following the recipe file exactly; each one records its own ADR.
 2. Whether to keep or delete the `welcome` example feature.
 
 On an established project, skip this section entirely — never apply a recipe without an explicit user request.
@@ -73,7 +74,7 @@ docs/
                   ui-states, accessibility, errors, security, performance, tests,
                   documentation, git
   decisions/      why: numbered architecture decision records
-  recipes/        opt-in additions (tailwind, zustand) — only on explicit user choice
+  recipes/        opt-in additions (tailwind, zustand, shadcn) — only on explicit user choice
 ```
 
 Jump straight to the doc that matches the task instead of reading everything:
@@ -93,7 +94,7 @@ Jump straight to the doc that matches the task instead of reading everything:
 | Asked to commit, branch or open a PR                  | `docs/standards/git.md`                                                                                            |
 | Tests                                                 | `docs/standards/tests.md`                                                                                          |
 | Anything user-facing/interactive                      | `docs/standards/accessibility.md`                                                                                  |
-| User opts into Tailwind or Zustand                    | `docs/recipes/tailwind.md`, `docs/recipes/zustand.md`                                                              |
+| User opts into Tailwind, Zustand or shadcn/ui         | `docs/recipes/tailwind.md`, `docs/recipes/zustand.md`, `docs/recipes/shadcn.md`                                    |
 | Tempted to add a new abstraction, dependency, or file | `docs/ponytail/overview.md`                                                                                        |
 | Reviewing a diff or the repo for bloat                | `docs/ponytail/review.md`, `docs/ponytail/audit.md`                                                                |
 
