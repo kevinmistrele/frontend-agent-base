@@ -18,6 +18,7 @@ npm run typecheck
 npm run lint
 npm run format:check
 npm run test
+npx vitest run <path>   # single test file — prefer this when the blast radius is one module
 npm run test:e2e   # Playwright smoke; boots the dev server itself (first run: npx playwright install chromium)
 npm run build
 ```

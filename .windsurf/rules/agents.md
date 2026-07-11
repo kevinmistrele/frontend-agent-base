@@ -1,0 +1,5 @@
+---
+trigger: always_on
+---
+
+Read `AGENTS.md` at the repository root — it is the single entry point for all agent instructions in this repo. Do not duplicate rules here; edit `AGENTS.md` and `docs/` instead.

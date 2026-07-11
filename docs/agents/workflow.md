@@ -34,7 +34,3 @@ Summarize:
 - checks run;
 - skipped checks and why;
 - any `Pending decision` item.
-
-## If this environment runs a multi-agent pipeline
-
-Some setups split this workflow across dedicated roles (analysis → implementation → review → delivery) with handoff files under `.claude/handoffs/`. If that pipeline is present and active, follow its contracts instead of doing all phases in one turn. If it isn't, the phases above (read, edit, validate, self-review) still apply — they just happen in a single pass. Either way, `.claude/handoffs/` (if it exists) must never be committed to the repo.
