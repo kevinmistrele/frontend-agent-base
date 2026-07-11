@@ -4,6 +4,8 @@
 
 This repository is a React + TypeScript front-end base designed for scalable feature development and AI-agent collaboration. It works the same way whether you are Claude, Codex, Cursor, Copilot, or any other agent — start here.
 
+Tool-specific entry files (`CLAUDE.md`, `GEMINI.md`, `.github/copilot-instructions.md`, `.cursor/rules/`, `.windsurf/rules/`, `.clinerules/`, `.roo/rules/`, `.junie/`, `.goosehints`) are one-line pointers to this file for tools that don't read `AGENTS.md` natively. Never put rules in them — all instructions live here and in `docs/`.
+
 ## Commands
 
 ```bash
